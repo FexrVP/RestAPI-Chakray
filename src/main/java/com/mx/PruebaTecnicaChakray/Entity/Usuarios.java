@@ -1,16 +1,17 @@
 package com.mx.PruebaTecnicaChakray.Entity;
 
-import java.sql.Date;
-import java.util.UUID;
+import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /*
@@ -18,7 +19,6 @@ import jakarta.persistence.Table;
     id_usuarios NVARCHAR2(50),
     email NVARCHAR2(100),
     name NVARCHAR2(100),
-    app NVARCHAR2(100),
     phone NVARCHAR2 (13),
     password NVARCHAR2(500),
     tax_id NVARCHAR2(13)CHECK(LENGTH(tax_id) BETWEEN 12 AND 13),
@@ -34,16 +34,13 @@ public class Usuarios {
 	
 	@Id
 	@Column(name = "id_usuarios")
-	private UUID idUsuarios;
+	private String id;
 	
 	@Column
 	private String email;
 	
 	@Column
 	private String name;
-	
-	@Column
-	private String app;
 	
 	@Column
 	private String phone;
@@ -56,35 +53,33 @@ public class Usuarios {
 	
 	@Column(name = "created_at")
 	@JsonFormat(pattern = "dd-MM-yyyy HH:mm", timezone = "Africa/Nairobi")
-	private Date createAt;
+	private Date createdAt;
 	
-	@ManyToMany
-	@JoinColumn(name = "id_addresses")
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY) 
 	@JsonManagedReference
-	private Addresses addres;
+	private List<Addresses> addresses;
 
 	public Usuarios() {
 	}
 
-	public Usuarios(UUID idUsuarios, String email, String name, String app, String phone, String password, String taxId,
-			Date createAt, Addresses addres) {
-		this.idUsuarios = idUsuarios;
+	public Usuarios(String id, String email, String name, String phone, String password, String taxId, Date createdAt,
+			List<Addresses> addresses) {
+		this.id = id;
 		this.email = email;
 		this.name = name;
-		this.app = app;
 		this.phone = phone;
 		this.password = password;
 		this.taxId = taxId;
-		this.createAt = createAt;
-		this.addres = addres;
+		this.createdAt = createdAt;
+		this.addresses = addresses;
 	}
 
-	public UUID getIdUsuarios() {
-		return idUsuarios;
+	public String getId() {
+		return id;
 	}
 
-	public void setIdUsuarios(UUID idUsuarios) {
-		this.idUsuarios = idUsuarios;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -101,14 +96,6 @@ public class Usuarios {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getApp() {
-		return app;
-	}
-
-	public void setApp(String app) {
-		this.app = app;
 	}
 
 	public String getPhone() {
@@ -135,30 +122,27 @@ public class Usuarios {
 		this.taxId = taxId;
 	}
 
-	public Date getCreateAt() {
-		return createAt;
+	public Date getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreateAt(Date createAt) {
-		this.createAt = createAt;
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
 	}
 
-	public Addresses getAddres() {
-		return addres;
+	public List<Addresses> getAddresses() {
+		return addresses;
 	}
 
-	public void setAddres(Addresses addres) {
-		this.addres = addres;
+	public void setAddresses(List<Addresses> addresses) {
+		this.addresses = addresses;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuarios [idUsuarios=" + idUsuarios + ", email=" + email + ", name=" + name + ", app=" + app
-				+ ", phone=" + phone + ", password=" + password + ", taxId=" + taxId + ", createAt=" + createAt
-				+ ", addres=" + addres + "]";
+		return "Usuarios [id=" + id + ", email=" + email + ", name=" + name + ", phone=" + phone + ", password="
+				+ password + ", taxId=" + taxId + ", createdAt=" + createdAt + ", addresses=" + addresses + "]";
 	}
-	
-	
 	
 	
 	

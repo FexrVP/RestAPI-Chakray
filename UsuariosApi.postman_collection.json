@@ -1,0 +1,497 @@
+{
+  "info": {
+    "_postman_id": "677ed363-41b2-4325-ba50-e6aa63376bce",
+    "name": "UsuariosApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51038361",
+    "_collection_link": "https://go.postman.co/collection/51038361-677ed363-41b2-4325-ba50-e6aa63376bce?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "taxId",
+              "value": "AARR990101XXX",
+              "type": "text",
+              "uuid": "f0263af5-3734-4b6b-aaac-9f389a7a6e5f"
+            },
+            {
+              "key": "password",
+              "value": "12345",
+              "type": "text",
+              "uuid": "81f93553-d48e-492b-993e-2ea1b1f59c2e"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:9001/usuariosApi/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9001",
+          "path": [
+            "usuariosApi",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "LoginExitoso",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "taxId",
+                  "value": "AARR990101XXX",
+                  "type": "text",
+                  "uuid": "f0263af5-3734-4b6b-aaac-9f389a7a6e5f"
+                },
+                {
+                  "key": "password",
+                  "value": "12345",
+                  "type": "text",
+                  "uuid": "81f93553-d48e-492b-993e-2ea1b1f59c2e"
+                }
+              ],
+              "options": {
+                "raw": {
+                  "language": "text"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9001/usuariosApi/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9001",
+              "path": [
+                "usuariosApi",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Length",
+              "value": "0"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 16 Feb 2026 18:42:18 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "Listado de usuarios",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9001/usuariosApi",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9001",
+          "path": [
+            "usuariosApi"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Listado de usuarios",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9001/usuariosApi",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9001",
+              "path": [
+                "usuariosApi"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 16 Feb 2026 21:44:25 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": \"a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11\",\n        \"email\": \"user1@mail.com\",\n        \"name\": \"user1\",\n        \"phone\": \"+15555555555\",\n        \"password\": \"12345\",\n        \"taxId\": \"AARR990101XXX\",\n        \"createdAt\": \"16-02-2026 20:04\",\n        \"addresses\": [\n            {\n                \"idAddres\": 1,\n                \"name\": \"workaddress\",\n                \"street\": \"street No. 1\",\n                \"countryCode\": \"UK\"\n            },\n            {\n                \"idAddres\": 2,\n                \"name\": \"homeaddress\",\n                \"street\": \"street No. 2\",\n                \"countryCode\": \"AU\"\n            }\n        ]\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Crear un nuevo usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"user2@mail.com\",\r\n    \"name\": \"user2\",\r\n    \"phone\": \"+15555555555\",\r\n    \"password\": \"12345\",\r\n    \"taxId\": \"BARR990101XXX\",\r\n    \"addresses\": [\r\n        {\r\n            \"idAddres\": 3,\r\n            \"name\": \"workaddress\",\r\n            \"street\": \"street No. 1\",\r\n            \"countryCode\": \"UK\"\r\n        },\r\n        {\r\n            \"idAddres\": 4,\r\n            \"name\": \"homeaddress\",\r\n            \"street\": \"street No. 2\",\r\n            \"countryCode\": \"AU\"\r\n        }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9001/usuariosApi",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9001",
+          "path": [
+            "usuariosApi"
+          ]
+        },
+        "description": "No requiere \"id\" ni \"created_at\" debido a que se genera automaticamente"
+      },
+      "response": [
+        {
+          "name": "Crear un nuevo usuario",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"user2@mail.com\",\r\n    \"name\": \"user2\",\r\n    \"phone\": \"+15555555555\",\r\n    \"password\": \"12345\",\r\n    \"taxId\": \"BARR990101XXX\",\r\n    \"addresses\": [\r\n        {\r\n            \"idAddres\": 3,\r\n            \"name\": \"workaddress\",\r\n            \"street\": \"street No. 1\",\r\n            \"countryCode\": \"UK\"\r\n        },\r\n        {\r\n            \"idAddres\": 4,\r\n            \"name\": \"homeaddress\",\r\n            \"street\": \"street No. 2\",\r\n            \"countryCode\": \"AU\"\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9001/usuariosApi",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9001",
+              "path": [
+                "usuariosApi"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 16 Feb 2026 19:28:22 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"04e26222-2844-4ddb-b93c-e9ef09aca68d\",\n    \"email\": \"user2@mail.com\",\n    \"name\": \"user2\",\n    \"phone\": \"+15555555555\",\n    \"password\": \"12345\",\n    \"taxId\": \"BARR990101XXX\",\n    \"createdAt\": \"16-02-2026 22:28\",\n    \"addresses\": [\n        {\n            \"idAddres\": 3,\n            \"name\": \"workaddress\",\n            \"street\": \"street No. 1\",\n            \"countryCode\": \"UK\"\n        },\n        {\n            \"idAddres\": 4,\n            \"name\": \"homeaddress\",\n            \"street\": \"street No. 2\",\n            \"countryCode\": \"AU\"\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Actualizar usuario",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"nuevo@mail.com\",\r\n    \"phone\": \"+525555555555\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:9001/usuariosApi/04e26222-2844-4ddb-b93c-e9ef09aca68d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9001",
+          "path": [
+            "usuariosApi",
+            "04e26222-2844-4ddb-b93c-e9ef09aca68d"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actualizar usuario Exitoso",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"nuevo@mail.com\",\r\n    \"phone\": \"+525555555555\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9001/usuariosApi/04e26222-2844-4ddb-b93c-e9ef09aca68d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9001",
+              "path": [
+                "usuariosApi",
+                "04e26222-2844-4ddb-b93c-e9ef09aca68d"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 16 Feb 2026 19:55:50 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": \"04e26222-2844-4ddb-b93c-e9ef09aca68d\",\n    \"email\": \"nuevo@mail.com\",\n    \"name\": \"user2\",\n    \"phone\": \"+525555555555\",\n    \"password\": \"12345\",\n    \"taxId\": \"BARR990101XXX\",\n    \"createdAt\": \"16-02-2026 22:28\",\n    \"addresses\": [\n        {\n            \"idAddres\": 3,\n            \"name\": \"workaddress\",\n            \"street\": \"street No. 1\",\n            \"countryCode\": \"UK\"\n        },\n        {\n            \"idAddres\": 4,\n            \"name\": \"homeaddress\",\n            \"street\": \"street No. 2\",\n            \"countryCode\": \"AU\"\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Eliminar usuario",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9001/usuariosApi/04e26222-2844-4ddb-b93c-e9ef09aca68d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9001",
+          "path": [
+            "usuariosApi",
+            "04e26222-2844-4ddb-b93c-e9ef09aca68d"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Eliminar usuario",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9001/usuariosApi/04e26222-2844-4ddb-b93c-e9ef09aca68d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9001",
+              "path": [
+                "usuariosApi",
+                "04e26222-2844-4ddb-b93c-e9ef09aca68d"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Mon, 16 Feb 2026 19:56:40 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "Listados especiales",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9001/usuariosApi?filter=tax_id%2Beq%2BAARR990101XXX",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9001",
+          "path": [
+            "usuariosApi"
+          ],
+          "query": [
+            {
+              "key": "filter",
+              "value": "tax_id%2Beq%2BAARR990101XXX"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Listado equals",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9001/usuariosApi?filter=tax_id%2Beq%2BAARR990101XXX",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9001",
+              "path": [
+                "usuariosApi"
+              ],
+              "query": [
+                {
+                  "key": "filter",
+                  "value": "tax_id%2Beq%2BAARR990101XXX"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 16 Feb 2026 21:53:03 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": \"a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11\",\n        \"email\": \"user1@mail.com\",\n        \"name\": \"user1\",\n        \"phone\": \"+15555555555\",\n        \"password\": \"12345\",\n        \"taxId\": \"AARR990101XXX\",\n        \"createdAt\": \"16-02-2026 20:04\",\n        \"addresses\": [\n            {\n                \"idAddres\": 1,\n                \"name\": \"workaddress\",\n                \"street\": \"street No. 1\",\n                \"countryCode\": \"UK\"\n            },\n            {\n                \"idAddres\": 2,\n                \"name\": \"homeaddress\",\n                \"street\": \"street No. 2\",\n                \"countryCode\": \"AU\"\n            }\n        ]\n    }\n]"
+        }
+      ]
+    }
+  ]
+}

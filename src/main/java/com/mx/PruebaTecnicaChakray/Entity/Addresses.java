@@ -1,8 +1,14 @@
 package com.mx.PruebaTecnicaChakray.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 /*
@@ -30,14 +36,20 @@ public class Addresses {
 	@Column(name = "country_code")
 	private String countryCode;
 
+	@ManyToOne
+	@JoinColumn(name = "id_usuarios")
+	@JsonBackReference
+	private Usuarios usuario;
+
 	public Addresses() {
 	}
 
-	public Addresses(Long idAddres, String name, String street, String countryCode) {
+	public Addresses(Long idAddres, String name, String street, String countryCode, Usuarios usuario) {
 		this.idAddres = idAddres;
 		this.name = name;
 		this.street = street;
 		this.countryCode = countryCode;
+		this.usuario = usuario;
 	}
 
 	public Long getIdAddres() {
@@ -72,12 +84,20 @@ public class Addresses {
 		this.countryCode = countryCode;
 	}
 
+	public Usuarios getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuarios usuario) {
+		this.usuario = usuario;
+	}
+
 	@Override
 	public String toString() {
 		return "Addresses [idAddres=" + idAddres + ", name=" + name + ", street=" + street + ", countryCode="
-				+ countryCode + "]";
+				+ countryCode + ", usuario=" + usuario + "]";
 	}
-	
-	
+
+
 	
 }

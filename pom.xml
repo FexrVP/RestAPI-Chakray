@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mx.PruebaTecnicaChakray</groupId>
-	<artifactId>Libreria</artifactId>
+	<artifactId>PruebaTecnicaChakray-WS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>PruebaTecnicaChakray</name>
 	<description>Prueba tecnica Chakray</description>

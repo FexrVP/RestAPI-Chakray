@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  spring-app:
+    build: .
+    container_name: pruebatecnica-chakray-app
+    ports:
+      - "9001:9001"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@host.docker.internal:1521:XE
+      SPRING_DATASOURCE_USERNAME: system
+      SPRING_DATASOURCE_PASSWORD: 12345
+      TZ: UTC
+      JAVA_OPTS: "-Duser.timezone=UTC"

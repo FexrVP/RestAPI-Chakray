@@ -75,9 +75,7 @@ public class WsUsuarios {
 	    // POST /login
 	    @PostMapping("/login")
 	    public ResponseEntity<Void> login(@RequestParam String taxId, @RequestParam String password) {	
-	        System.out.println("Intento de login con: taxId=" + taxId + ", password=" + password);
 	        Optional<Usuarios> usuario = usuariosService.autenticar(taxId, password);
-	        System.out.println("Resultado autenticación: " + usuario.isPresent());
 	        return usuario.isPresent() ? ResponseEntity.ok().build() : ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 	    }
 

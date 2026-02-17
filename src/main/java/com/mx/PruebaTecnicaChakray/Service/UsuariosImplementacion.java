@@ -43,11 +43,11 @@ public class UsuariosImplementacion implements InterfaceUsuarios {
         }
         
         if (usuario.getTaxId() == null || usuario.getTaxId().trim().isEmpty()) {
-            throw new RuntimeException("El tax_id es obligatorio");
+            throw new RuntimeException("El taxId es obligatorio");
         }
 
         if (usuariosDao.existsByTaxId(usuario.getTaxId())) {
-            throw new RuntimeException("El tax_id ya existe");
+            throw new RuntimeException("El taxId ya existe");
         }
         
         if (usuario.getAddresses() != null) {
@@ -82,7 +82,7 @@ public class UsuariosImplementacion implements InterfaceUsuarios {
             if (usuarioActualizado.getTaxId() != null) {
                 if (!usuarioExistente.getTaxId().equals(usuarioActualizado.getTaxId()) &&
                         usuariosDao.existsByTaxId(usuarioActualizado.getTaxId())) {
-                    throw new RuntimeException("El nuevo tax_id ya existe");
+                    throw new RuntimeException("El nuevo taxId ya existe");
                 }
                 usuarioExistente.setTaxId(usuarioActualizado.getTaxId());
             }
@@ -116,7 +116,7 @@ public class UsuariosImplementacion implements InterfaceUsuarios {
         if (usuario.getTaxId() != null) {
             int len = usuario.getTaxId().length();
             if (len < 12 || len > 13) {
-                throw new RuntimeException("tax_id debe tener entre 12 y 13 caracteres");
+                throw new RuntimeException("taxId debe tener entre 12 y 13 caracteres");
             }
         }
         if (usuario.getPhone() != null && usuario.getPhone().length() > 13) {

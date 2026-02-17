@@ -1,5 +1,5 @@
 # RestAPI-Chakray
-##Descripción
+## Descripción
 API REST desarrollada con Spring Boot 4.0.2, Java 17 y Maven, que expone recursos para la gestión de usuarios y direcciones.
 Los datos se almacenan en una base de datos Oracle.
 El proyecto incluye:
@@ -13,7 +13,7 @@ El proyecto incluye:
 7. Colección de Postman con pruebas exitosas y fallidas.
 8. Control de versiones con Git.
   
-##Configuración de la base de datos Oracle
+## Configuración de la base de datos Oracle
 	CREATE TABLE USUARIOS_ENCRIPTADOS(
     id_usuarios NVARCHAR2(50) PRIMARY KEY,
     email NVARCHAR2(100),
@@ -41,19 +41,17 @@ El proyecto incluye:
 	INSERT INTO ADDRESSES (id_addresses, id_usuarios, name, street, country_code) VALUES (2, 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'homeaddress', 'street No. 	2', 'AU');
 	COMMIT;
 
-##Ejecución de la aplicación
+## Ejecución de la aplicación
 
 La aplicación utiliza las siguientes variables de entorno para la conexión a la base de datos(o configurar en application.properties y archivos docker):
 
-- SPRING_DATASOURCE_URL (por defecto: jdbc:oracle:thin:@localhost:1521:XE)
-
-- SPRING_DATASOURCE_USERNAME (por defecto: system)
-
-- SPRING_DATASOURCE_PASSWORD (por defecto: 12345)
+	- SPRING_DATASOURCE_URL (por defecto: jdbc:oracle:thin:@localhost:1521:XE)
+	- SPRING_DATASOURCE_USERNAME (por defecto: system)
+	- SPRING_DATASOURCE_PASSWORD (por defecto: 12345)
 
 Modificarlas segun el entorno.  
 
-##Ejecución desde GitHub
+## Ejecución desde GitHub
 1. Clonar el repositorio con desde https://github.com/FexrVP/RestAPI-Chakray.git
 2. Compilar y empeaquetar el API desde nuestro IDE o con ./mvnw clean package
 3. Ejecutar la aplicación
@@ -68,7 +66,7 @@ Modificarlas segun el entorno.
 4. Ejecuta desde la consola en la carpeta raiz:
    docker-compose up --build
    
-##Endpoints de la API
+## Endpoints de la API
 
 URL base: http://localhost:9001/usuariosApi
 
@@ -125,16 +123,16 @@ Metodo PATCH
 
 JSON de ejemplo:
 
-{
+	{
     "email": "nuevo@mail.com",
     "phone": "+525566778899"
-}
+	}
 
 5. Eliminar un usuario
 Metodo DELETE
 /usuariosApi/{id}
 
-##Colección de Postman
+## Colección de Postman
 Se incluye en el repositorio el archivo postman_collection.json con ejemplos de todos los endpoints. Para usarlo:
 
 1. Abre Postman.
@@ -142,14 +140,14 @@ Se incluye en el repositorio el archivo postman_collection.json con ejemplos de 
 3. Ajusta la variable base_url si es necesario (por defecto http://localhost:9001).
 4. Ejecuta las peticiones.
 
-##Validaciones implementadas
+## Validaciones implementadas
 - tax_id: obligatorio, longitud entre 12 y 13 caracteres, único.
 
 - phone: longitud máxima 13 caracteres (se permite código de país).
 
 - created_at: se genera automáticamente con la zona horaria de Madagascar (Indian/Antananarivo) y formato dd-MM-yyyy HH:mm.
 
-##Tecnologías utilizadas
+## Tecnologías utilizadas
 - Java 17
 
 - Spring Boot 4.0.2

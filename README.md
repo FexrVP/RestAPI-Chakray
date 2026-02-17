@@ -90,8 +90,11 @@ Ejemplo: ?filter=name+co+user
 Nota: El signo + debe codificarse como %2B en la URL.
 
 3. Crear un nuevo usuario
+
 Metodo POST
+
 /usuariosApi
+
 JSON:
 
 	{
@@ -115,6 +118,7 @@ JSON:
         }
     ]
 	}
+
 Nota: El id y el createdAt se generan automaticamente
 
 4. Actualizar el usuario
